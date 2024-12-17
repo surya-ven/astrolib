@@ -15,8 +15,8 @@ const createLinkTag = (attributes: Record<string, string>): string => {
   return `<link ${attrs}>`;
 };
 
-const createOpenGraphTag = (property: string, content: string): string => {
-  return createMetaTag({ property: `og:${property}`, content });
+const createOpenGraphTag = (property: string, content: string, ogPrefix: boolean = true): string => {
+  return createMetaTag({ property: ogPrefix ? `og:${property}`: `${property}`, content });
 };
 
 const buildOpenGraphMediaTags = (
@@ -265,7 +265,8 @@ export const buildTags = (config: AstroSeoProps): string => {
         addTag(
           createOpenGraphTag(
             "article:published_time",
-            config.openGraph.article.publishedTime
+            config.openGraph.article.publishedTime,
+            false
           )
         );
       }
@@ -273,7 +274,8 @@ export const buildTags = (config: AstroSeoProps): string => {
         addTag(
           createOpenGraphTag(
             "article:modified_time",
-            config.openGraph.article.modifiedTime
+            config.openGraph.article.modifiedTime,
+            false
           )
         );
       }
@@ -281,7 +283,8 @@ export const buildTags = (config: AstroSeoProps): string => {
         addTag(
           createOpenGraphTag(
             "article:expiration_time",
-            config.openGraph.article.expirationTime
+            config.openGraph.article.expirationTime,
+            false
           )
         );
       }
@@ -290,14 +293,15 @@ export const buildTags = (config: AstroSeoProps): string => {
         config.openGraph.article.authors.length
       ) {
         config.openGraph.article.authors.forEach((author) => {
-          addTag(createOpenGraphTag("article:author", author));
+          addTag(createOpenGraphTag("article:author", author, false));
         });
       }
       if (config.openGraph.article.section) {
         addTag(
           createOpenGraphTag(
             "article:section",
-            config.openGraph.article.section
+            config.openGraph.article.section,
+            false
           )
         );
       }
@@ -306,7 +310,7 @@ export const buildTags = (config: AstroSeoProps): string => {
         config.openGraph.article.tags.length
       ) {
         config.openGraph.article.tags.forEach((tag) => {
-          addTag(createOpenGraphTag("article:tag", tag));
+          addTag(createOpenGraphTag("article:tag", tag, false));
         });
       }
     }
