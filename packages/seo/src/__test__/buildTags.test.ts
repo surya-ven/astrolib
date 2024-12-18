@@ -247,6 +247,71 @@ describe("buildTags function", () => {
         expect(htmlResult.valid).toBe(true);
     });
 
+    it("should generate correct OpenGraph profile tags", async () => {
+        const config = {
+            openGraph: {
+                profile: {
+                    firstName: "John",
+                    lastName: "Doe",
+                    gender: "male",
+                    username: "johndoe",
+                },
+            },
+        };
+        const result = buildTags(config);
+        expect(result).toContain(
+            '<meta property="profile:first_name" content="John">'
+        );
+        expect(result).toContain(
+            '<meta property="profile:last_name" content="Doe">'
+        );
+        expect(result).toContain(
+            '<meta property="profile:gender" content="male">'
+        );
+        expect(result).toContain(
+            '<meta property="profile:username" content="johndoe">'
+        );
+
+        const htmlResult = await validate.validateString(result);
+        expect(htmlResult.valid).toBe(true);
+    });
+
+    it("should generate correct OpenGraph book tags", async () => {
+        const config = {
+            openGraph: {
+                book: {
+                    authors: [
+                        "http://walterisaacson.com",
+                        "http://author2.com",
+                    ],
+                    isbn: "978-1451648539",
+                    releaseDate: "2011-10-24",
+                    tags: ["Steve Jobs", "tag2"],
+                },
+            },
+        };
+        const result = buildTags(config);
+        expect(result).toContain(
+            '<meta property="book:author" content="http://walterisaacson.com">'
+        );
+        expect(result).toContain(
+            '<meta property="book:author" content="http://author2.com">'
+        );
+        expect(result).toContain(
+            '<meta property="book:isbn" content="978-1451648539">'
+        );
+        expect(result).toContain(
+            '<meta property="book:release_date" content="2011-10-24">'
+        );
+        expect(result).toContain(
+            '<meta property="book:tag" content="Steve Jobs">'
+        );
+        expect(result).toContain('<meta property="book:tag" content="tag2">');
+
+        const htmlResult = await validate.validateString(result);
+        expect(htmlResult.valid).toBe(true);
+    });
+
     it("should generate correct languageAlternates link tags", async () => {
         const config = {
             languageAlternates: [
