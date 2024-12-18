@@ -7,8 +7,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-  },
   "author": {
     "name": "onWidget",
     "email": "contact@onwidget.com",
