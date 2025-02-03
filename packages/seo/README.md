@@ -1,4 +1,10 @@
-# Astro SEO - @astrolib/seo
+# Disclaimer: This is an updated and modified version of @onwidget/astro
+The unmodified sections are attributable to https://github.com/onwidget/astrolib.
+This is meant to be used in conjunction with a modified version of their https://github.com/onwidget/astrowind template which is currently not released by Digacy.
+
+Please use the original templates and libraries unless you are using the digacy version of the template.
+
+# Astro SEO - @digacy/astro-seo
 
 `Astro SEO` is an integration that makes managing your SEO easier in Astro projects. It is fully based on the excellent [Next SEO](https://github.com/garmeeh/next-seo) library
 
@@ -11,24 +17,24 @@
 First, install it:
 
 ```bash
-npm install @astrolib/seo
+npm install @digacy/astro-seo
 ```
 
 or
 
 ```bash
-yarn add @astrolib/seo
+yarn add @digacy/astro-seo
 ```
 
 ### Add SEO to Page
 
-Then you need to import `@astrolib/seo` and add the desired properties. This will render out the tags in the `<head>` for SEO. At a bare minimum, you should add a title and description.
+Then you need to import `@digacy/astro-seo` and add the desired properties. This will render out the tags in the `<head>` for SEO. At a bare minimum, you should add a title and description.
 
 **Example with just title and description:**
 
 ```astro
 ---
-import { AstroSeo } from '@astrolib/seo';
+import { AstroSeo } from '@digacy/astro-seo';
 ---
 
 <AstroSeo
@@ -43,7 +49,7 @@ But `Astro SEO` gives you many more options that you can add. See below for a ty
 
 ```astro
 ---
-import { AstroSeo } from '@astrolib/seo';
+import { AstroSeo } from '@digacy/astro-seo';
 ---
 
 <AstroSeo
