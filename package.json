@@ -1,15 +1,11 @@
 {
-  "name": "astrolib",
-  "version": "0.1.0",
-  "description": "..",
-  "private": true,
-  "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
-  "author": {
-    "name": "onWidget",
-    "email": "contact@onwidget.com",
-    "url": "https://github.com/onwidget"
-  }
+    "name": "digacy",
+    "version": "0.1.0",
+    "description": "Updated and modified version of onwidget/astrolib.",
+    "private": true,
+    "license": "MIT",
+    "workspaces": [
+        "packages/*"
+    ],
+    "author": "Digacy"
 }

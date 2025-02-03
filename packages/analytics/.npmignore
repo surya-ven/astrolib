@@ -1,0 +1,4 @@
+*.tgz
+src/__test__/
+jest.config.js
+README.md

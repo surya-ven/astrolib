@@ -24,3 +24,5 @@ pnpm-lock.yaml
 
 # tarballs
 *.tgz
+
+PACKAGING.md
